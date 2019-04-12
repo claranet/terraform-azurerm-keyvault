@@ -77,18 +77,32 @@ variable "reader_objects_ids" {
   default     = []
 }
 
-variable "logs_retention" {
-  description = "Retention in days for audit logs on Storage Account"
+variable "enable_logs_to_storage" {
+  description = "Boolean flag to specify whether the logs should be sent to the Storage Account"
+  type        = "string"
+  default     = "false"
+}
+
+variable "enable_logs_to_log_analytics" {
+  description = "Boolean flag to specify whether the logs should be sent to Log Analytics"
+  type        = "string"
+  default     = "false"
+}
+
+variable "logs_storage_retention" {
+  description = "Retention in days for logs on Storage Account"
   type        = "string"
   default     = "30"
 }
 
-variable "logs_storage_account_name" {
-  description = "Storage Account name for database logs"
+variable "logs_storage_account_id" {
+  description = "Storage Account id for logs"
   type        = "string"
+  default     = ""
 }
 
-variable "logs_storage_account_rg" {
-  description = "Storage Account Resource Group name for database logs"
+variable "logs_log_analytics_workspace_id" {
+  description = "Log Analytics Workspace id for logs"
   type        = "string"
+  default     = ""
 }

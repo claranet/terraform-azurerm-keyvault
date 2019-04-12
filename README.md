@@ -38,8 +38,11 @@ module "key_vault" {
   resource_group_name = "${module.rg.resource_group_name}"
   stack               = "${var.stack}"
 
-  logs_storage_account_name = "${data.terraform_remote_state.run.logs_storage_account_name}"
-  logs_storage_account_rg   = "${data.terraform_remote_state.run.resource_group_name}"
+  enable_logs_to_storage  = "true"
+  logs_storage_account_id = "${data.terraform_remote_state.run.logs_storage_account_id}"
+
+  enable_logs_to_log_analytics    = "true"
+  logs_log_analytics_workspace_id = "${data.terraform_remote_state.run.log_analytics_id}"
 
   tenant_id = "${var.azure_tenant_id}"
   
@@ -57,6 +60,8 @@ module "key_vault" {
 | admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | list | `<list>` | no |
 | client\_name |  | string | n/a | yes |
 | custom\_name | Name of the Key Vault, generated if not set. | string | `""` | no |
+| enable\_logs\_to\_log\_analytics | Boolean flag to specify whether the logs should be sent to Log Analytics | string | `"false"` | no |
+| enable\_logs\_to\_storage | Boolean flag to specify whether the logs should be sent to the Storage Account | string | `"false"` | no |
 | enabled\_for\_deployment | Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | string | `"false"` | no |
 | enabled\_for\_disk\_encryption | Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | string | `"false"` | no |
 | enabled\_for\_template\_deployment | Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | string | `"false"` | no |
@@ -64,9 +69,9 @@ module "key_vault" {
 | extra\_tags | Extra tags to add | map | `<map>` | no |
 | location | Azure location for Key Vault. | string | n/a | yes |
 | location\_short | Short string for Azure location. | string | n/a | yes |
-| logs\_retention | Retention in days for audit logs on Storage Account | string | `"30"` | no |
-| logs\_storage\_account\_name | Storage Account name for database logs | string | n/a | yes |
-| logs\_storage\_account\_rg | Storage Account Resource Group name for database logs | string | n/a | yes |
+| logs\_log\_analytics\_workspace\_id | Log Analytics Workspace id for logs | string | `""` | no |
+| logs\_storage\_account\_id | Storage Account id for logs | string | `""` | no |
+| logs\_storage\_retention | Retention in days for logs on Storage Account | string | `"30"` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | list | `<list>` | no |
 | resource\_group\_name |  | string | n/a | yes |
 | sku | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
