@@ -65,6 +65,18 @@ variable "enabled_for_template_deployment" {
   default     = "false"
 }
 
+variable "admin_objects_ids" {
+  description = "Ids of the objects that can do all operations on all keys, secrets and certificates"
+  type        = "list"
+  default     = []
+}
+
+variable "reader_objects_ids" {
+  description = "Ids of the objects that can read all keys, secrets and certificates"
+  type        = "list"
+  default     = []
+}
+
 variable "logs_retention" {
   description = "Retention in days for audit logs on Storage Account"
   type        = "string"

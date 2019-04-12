@@ -7,3 +7,5 @@ resource_group_name="rg-test"
 tenant_id="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 logs_storage_account_name="logsstorage"
 logs_storage_account_rg="rg-test"
+reader_objects_ids=["aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", "aaaaaaaa-bbbb-cccc-dddd-000000000000"]
+admin_objects_ids=["aaaaaaaa-bbbb-cccc-dddd-111111111111", "aaaaaaaa-bbbb-cccc-dddd-222222222222"]
