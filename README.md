@@ -1,10 +1,12 @@
 # Azure Key Vault module
 
-## Purpose
 This Terraform module creates an [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) 
 with "reader" and "admin" pre-configured [Access policies](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 
 and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging) 
 enabled.
+
+# Requirements
+* Azure provider >= 1.22
 
 ## Usage
 You can use this module by including it this way:
@@ -18,10 +20,10 @@ module "az-region" {
 module "rg" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/rg.git?ref=vX.X.X"
 
-  azure_region = "${module.az-region.location}"
-  client_name  = "${var.client_name}"
-  environment  = "${var.environment}"
-  stack        = "${var.stack}"
+  location    = "${module.az-region.location}"
+  client_name = "${var.client_name}"
+  environment = "${var.environment}"
+  stack       = "${var.stack}"
 }
 
 data "azuread_group" "admin_group" {
@@ -49,7 +51,7 @@ module "key_vault" {
   reader_objects_ids = ["${var.webapp_service_principal_id}"]
 
   # Current user should be here to be able to create keys and secrets
-  admin_objects_ids = ["${data.admin_group.id}"]
+  admin_objects_ids = ["${data.azuread_group.admin_group.id}"]
 }
 ```
 
