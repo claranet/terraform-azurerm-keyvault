@@ -4,6 +4,7 @@ locals {
     stack = "${var.stack}"
   }
 
-  name_long = "${var.stack}-${var.client_name}-${var.environment}-kv"
-  name      = "${coalesce(var.custom_name, substr(local.name_long, 0, length(local.name_long) > 24 ? 23 : -1))}"
+  # Generate prefix, truncate it to 21 characters and add "-kv" suffix
+  name_prefix = "${var.stack}-${var.client_name}-${var.environment}"
+  name        = "${coalesce(var.custom_name, replace(substr(local.name_prefix, 0, length(local.name_prefix) > 21 ? 20 : -1), "/-?$/", "-kv"))}"
 }
