@@ -1,3 +1,4 @@
-# Unreleased
+# v1.0.0 - 2019-05-02
 
-* AZ-71: First version
+Added
+  * AZ-71: First version
