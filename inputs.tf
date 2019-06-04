@@ -25,8 +25,9 @@ variable "location_short" {
 }
 
 variable "tenant_id" {
-  description = "The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault."
+  description = "The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Default is the current one."
   type        = "string"
+  default     = ""
 }
 
 variable "sku" {

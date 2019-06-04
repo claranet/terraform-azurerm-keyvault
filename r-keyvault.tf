@@ -4,8 +4,7 @@ resource "azurerm_key_vault" "keyvault" {
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
 
-  # TODO Fetch the current one from an az cli command
-  tenant_id = "${var.tenant_id}"
+  tenant_id = "${local.tenant_id}"
 
   "sku" {
     name = "${var.sku}"

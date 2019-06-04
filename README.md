@@ -36,7 +36,7 @@ module "key_vault" {
   client_name         = "${var.client_name}"
   environment         = "${var.environment}"
   location            = "${module.az-region.location}"
-  location_short      = "${module.az-region.location-short}"
+  location_short      = "${module.az-region.location_short}"
   resource_group_name = "${module.rg.resource_group_name}"
   stack               = "${var.stack}"
 
@@ -44,10 +44,8 @@ module "key_vault" {
   logs_storage_account_id = "${data.terraform_remote_state.run.logs_storage_account_id}"
 
   enable_logs_to_log_analytics    = "true"
-  logs_log_analytics_workspace_id = "${data.terraform_remote_state.run.log_analytics_id}"
+  logs_log_analytics_workspace_id = "${data.terraform_remote_state.run.log_analytics_workspace_id}"
 
-  tenant_id = "${var.azure_tenant_id}"
-  
   reader_objects_ids = ["${var.webapp_service_principal_id}"]
 
   # Current user should be here to be able to create keys and secrets
@@ -78,7 +76,7 @@ module "key_vault" {
 | resource\_group\_name |  | string | n/a | yes |
 | sku | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
 | stack |  | string | n/a | yes |
-| tenant\_id | The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. | string | n/a | yes |
+| tenant\_id | The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Default is the current one. | string | `""` | no |
 
 ## Outputs
 
