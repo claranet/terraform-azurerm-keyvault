@@ -1,4 +1,4 @@
-# Unreleased
+# v1.1.0 - 2019-06-18
 
 Changed
   * AZ-98: Make KeyVault tenant id input optional
