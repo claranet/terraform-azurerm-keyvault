@@ -6,7 +6,7 @@ and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-v
 enabled.
 
 # Requirements
-* Azure provider >= 1.22
+* Azure provider >= 1.31
 
 ## Usage
 You can use this module by including it this way:
