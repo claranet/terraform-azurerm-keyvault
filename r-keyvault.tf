@@ -6,7 +6,7 @@ resource "azurerm_key_vault" "keyvault" {
 
   tenant_id = "${local.tenant_id}"
 
-  "sku" {
+  sku {
     name = "${var.sku}"
   }
 
