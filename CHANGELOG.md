@@ -1,3 +1,8 @@
+# Unreleased
+
+Changed
+  * AZ-94: Terraform 0.12 compatibility and deprecation fix
+
 # v1.1.0 - 2019-06-18
 
 Changed
