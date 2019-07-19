@@ -1,9 +1,9 @@
 resource "azurerm_key_vault_access_policy" "readers_policy" {
-  count = "${length(var.reader_objects_ids)}"
+  count = length(var.reader_objects_ids)
 
-  object_id    = "${element(var.reader_objects_ids, count.index)}"
-  tenant_id    = "${local.tenant_id}"
-  key_vault_id = "${azurerm_key_vault.keyvault.id}"
+  object_id    = element(var.reader_objects_ids, count.index)
+  tenant_id    = local.tenant_id
+  key_vault_id = azurerm_key_vault.keyvault.id
 
   key_permissions = [
     "get",
@@ -22,11 +22,11 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
 }
 
 resource "azurerm_key_vault_access_policy" "admin_policy" {
-  count = "${length(var.admin_objects_ids)}"
+  count = length(var.admin_objects_ids)
 
-  object_id    = "${element(var.admin_objects_ids, count.index)}"
-  tenant_id    = "${local.tenant_id}"
-  key_vault_id = "${azurerm_key_vault.keyvault.id}"
+  object_id    = element(var.admin_objects_ids, count.index)
+  tenant_id    = local.tenant_id
+  key_vault_id = azurerm_key_vault.keyvault.id
 
   key_permissions = [
     "backup",
@@ -77,3 +77,4 @@ resource "azurerm_key_vault_access_policy" "admin_policy" {
     "update",
   ]
 }
+

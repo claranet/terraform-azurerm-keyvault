@@ -1,16 +1,17 @@
 resource "azurerm_key_vault" "keyvault" {
-  name = "${local.name}"
+  name = local.name
 
-  location            = "${var.location}"
-  resource_group_name = "${var.resource_group_name}"
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
-  tenant_id = "${local.tenant_id}"
+  tenant_id = local.tenant_id
 
-  sku_name = "${var.sku}"
+  sku_name = var.sku_name
 
-  enabled_for_deployment          = "${var.enabled_for_deployment}"
-  enabled_for_disk_encryption     = "${var.enabled_for_disk_encryption}"
-  enabled_for_template_deployment = "${var.enabled_for_template_deployment}"
+  enabled_for_deployment          = var.enabled_for_deployment
+  enabled_for_disk_encryption     = var.enabled_for_disk_encryption
+  enabled_for_template_deployment = var.enabled_for_template_deployment
 
-  tags = "${merge(local.default_tags, var.extra_tags)}"
+  tags = merge(local.default_tags, var.extra_tags)
 }
+
