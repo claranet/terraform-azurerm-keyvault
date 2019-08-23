@@ -5,7 +5,7 @@ with "reader" and "admin" pre-configured [Access policies](https://docs.microsof
 and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging) 
 enabled.
 
-# Requirements
+## Requirements
 * Azure provider >= 1.31
 * Terraform >=0.12
 
