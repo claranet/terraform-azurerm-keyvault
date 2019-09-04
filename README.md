@@ -7,7 +7,7 @@ enabled.
 
 ## Requirements
 * Azure provider >= 1.31
-* Terraform >=0.12
+* Terraform >=0.12.7
 
 ## Usage
 You can use this module by including it this way:

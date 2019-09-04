@@ -1,7 +1,7 @@
 resource "azurerm_key_vault_access_policy" "readers_policy" {
-  count = length(var.reader_objects_ids)
+  for_each = { for v in var.reader_objects_ids : v => v }
 
-  object_id    = element(var.reader_objects_ids, count.index)
+  object_id    = each.value
   tenant_id    = local.tenant_id
   key_vault_id = azurerm_key_vault.keyvault.id
 
@@ -22,9 +22,9 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
 }
 
 resource "azurerm_key_vault_access_policy" "admin_policy" {
-  count = length(var.admin_objects_ids)
+  for_each = { for v in var.admin_objects_ids : v => v }
 
-  object_id    = element(var.admin_objects_ids, count.index)
+  object_id    = each.value
   tenant_id    = local.tenant_id
   key_vault_id = azurerm_key_vault.keyvault.id
 
