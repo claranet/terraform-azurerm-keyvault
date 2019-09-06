@@ -1,7 +1,7 @@
-# Unreleased
+# v2.0.0 - Unreleased
 
-Changed
-  * AZ-94: Terraform 0.12 compatibility and deprecation fix
+Breaking
+  * AZ-94: Terraform 0.12 / HCL2 format
 
 # v1.1.0 - 2019-06-18
 

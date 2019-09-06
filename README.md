@@ -5,8 +5,9 @@ with "reader" and "admin" pre-configured [Access policies](https://docs.microsof
 and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging) 
 enabled.
 
-# Requirements
+## Requirements
 * Azure provider >= 1.31
+* Terraform >=0.12.7
 
 ## Usage
 You can use this module by including it this way:
@@ -14,16 +15,16 @@ You can use this module by including it this way:
 module "az-region" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/regions.git?ref=vX.X.X"
 
-  azure_region = "${var.azure_region}"
+  azure_region = var.azure_region
 }
 
 module "rg" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/rg.git?ref=vX.X.X"
 
-  location    = "${module.az-region.location}"
-  client_name = "${var.client_name}"
-  environment = "${var.environment}"
-  stack       = "${var.stack}"
+  location    = module.az-region.location
+  client_name = var.client_name
+  environment = var.environment
+  stack       = var.stack
 }
 
 data "azuread_group" "admin_group" {
@@ -33,23 +34,24 @@ data "azuread_group" "admin_group" {
 module "key_vault" {
   source = "git::ssh://git@git.fr.clara.net/claranet/cloudnative/projects/cloud/azure/terraform/modules/keyvault.git?ref=vX.X.X"
 
-  client_name         = "${var.client_name}"
-  environment         = "${var.environment}"
-  location            = "${module.az-region.location}"
-  location_short      = "${module.az-region.location_short}"
-  resource_group_name = "${module.rg.resource_group_name}"
-  stack               = "${var.stack}"
+  client_name         = var.client_name
+  environment         = var.environment
+  location            = module.az-region.location
+  location_short      = module.az-region.location_short
+  resource_group_name = module.rg.resource_group_name
+  stack               = var.stack
 
   enable_logs_to_storage  = "true"
-  logs_storage_account_id = "${data.terraform_remote_state.run.logs_storage_account_id}"
+  logs_storage_account_id = data.terraform_remote_state.run.outputs.logs_storage_account_id
 
   enable_logs_to_log_analytics    = "true"
-  logs_log_analytics_workspace_id = "${data.terraform_remote_state.run.log_analytics_workspace_id}"
+  logs_log_analytics_workspace_id = data.terraform_remote_state.run.outputs.log_analytics_workspace_id
 
-  reader_objects_ids = ["${var.webapp_service_principal_id}"]
+  reader_objects_ids = var.webapp_service_principal_id
 
   # Current user should be here to be able to create keys and secrets
-  admin_objects_ids = ["${data.azuread_group.admin_group.id}"]
+  admin_objects_ids = data.azuread_group.admin_group.id
+
 }
 ```
 
