@@ -9,9 +9,10 @@ enabled.
 ## Requirements
 
 * [Terraform](https://www.terraform.io/downloads.html) >= 0.12.7
-* AzureRM Terraform provider >= 1.31
+* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.31
 
 ## Usage
+
 You can use this module by including it this way:
 ```hcl
 module "az-region" {
