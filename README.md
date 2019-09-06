@@ -1,4 +1,5 @@
-# Azure Key Vault module
+# Azure Key Vault feature
+[![Changelog](https://img.shields.io/badge/changelog-release-green.svg)](CHANGELOG.md) [![Notice](https://img.shields.io/badge/notice-copyright-yellow.svg)](NOTICE) [![Apache V2 License](http://img.shields.io/badge/license-Apache%20V2-blue.svg)](LICENSE)
 
 This Terraform module creates an [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) 
 with "reader" and "admin" pre-configured [Access policies](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 
@@ -6,10 +7,12 @@ and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-v
 enabled.
 
 ## Requirements
-* Azure provider >= 1.31
-* Terraform >=0.12.7
+
+* [Terraform](https://www.terraform.io/downloads.html) >= 0.12.7
+* [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.31
 
 ## Usage
+
 You can use this module by including it this way:
 ```hcl
 module "az-region" {
@@ -89,6 +92,7 @@ module "key_vault" {
 | key\_vault\_uri | URI of the Key Vault |
 
 ## Related documentation
+
 Terraform resource documentation: [https://www.terraform.io/docs/providers/azurerm/r/key_vault.html]
 
 Microsoft Azure documentation: [https://docs.microsoft.com/en-us/azure/key-vault/]
