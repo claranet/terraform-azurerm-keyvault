@@ -8,8 +8,14 @@ enabled.
 
 ## Requirements
 
-* [Terraform](https://www.terraform.io/downloads.html) >= 0.12.7
 * [AzureRM Terraform provider](https://www.terraform.io/docs/providers/azurerm/) >= 1.31
+
+## Terraform version compatibility
+ 
+| Module version | Terraform version |
+|----------------|-------------------|
+| >= 2.x.x       | 0.12.9            |
+| < 2.x.x        | 0.11.x            |
 
 ## Usage
 
