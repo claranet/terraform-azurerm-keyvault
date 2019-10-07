@@ -1,7 +1,10 @@
-# v2.0.1 - Unreleased
+# v2.0.1 - 2019-10-07
 
 Changed
   * AZ-119: Revamp README and publish this module to Terraform registry
+  * AZ-94: Fix `for_each` with null values thanks to Terraform 0.12.9
+
+Added
   * AZ-119: Add CONTRIBUTING.md doc and `terraform-wrapper` usage with the module
 
 # v2.0.0 - 2019-09-06
