@@ -18,8 +18,8 @@ resource "azurerm_key_vault" "keyvault" {
     content {
       bypass                     = acl.value["bypass"]
       default_action             = acl.value["default_action"]
-      ip_rules                   = split(",", acl.value["ip_rules"])
-      virtual_network_subnet_ids = split(",", acl.value["virtual_network_subnet_ids"])
+      ip_rules                   = acl.value["ip_rules"] == "" ? null : split(",", acl.value["ip_rules"])
+      virtual_network_subnet_ids = acl.value["virtual_network_subnet_ids"] == "" ? null : split(",", acl.value["virtual_network_subnet_ids"])
     }
   }
 
