@@ -69,6 +69,14 @@ module "key_vault" {
   # Current user should be here to be able to create keys and secrets
   admin_objects_ids = data.azuread_group.admin_group.id
 
+  # Specify Network ACLs
+  network_acls = {
+    bypass         = "None"
+    default_action = "Deny"
+    ip_rules       = "10.10.0.0/26,1.2.3.4/32"
+
+    virtual_network_subnet_ids = join(",", module.subnet.subnet_ids)
+  }
 }
 ```
 
@@ -76,7 +84,7 @@ module "key_vault" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | list | `<list>` | no |
+| admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | list(string) | `[]` | no | 
 | client\_name |  | string | n/a | yes |
 | custom\_name | Name of the Key Vault, generated if not set. | string | `""` | no |
 | enable\_logs\_to\_log\_analytics | Boolean flag to specify whether the logs should be sent to Log Analytics | string | `"false"` | no |
@@ -85,15 +93,16 @@ module "key_vault" {
 | enabled\_for\_disk\_encryption | Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | string | `"false"` | no |
 | enabled\_for\_template\_deployment | Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | string | `"false"` | no |
 | environment |  | string | n/a | yes |
-| extra\_tags | Extra tags to add | map | `<map>` | no |
+| extra\_tags | Extra tags to add | map(string) | `{}` | no |
 | location | Azure location for Key Vault. | string | n/a | yes |
 | location\_short | Short string for Azure location. | string | n/a | yes |
 | logs\_log\_analytics\_workspace\_id | Log Analytics Workspace id for logs | string | `""` | no |
 | logs\_storage\_account\_id | Storage Account id for logs | string | `""` | no |
 | logs\_storage\_retention | Retention in days for logs on Storage Account | string | `"30"` | no |
-| reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | list | `<list>` | no |
+| network\_acls | Map object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | map(string) | `"null"` | no |
+| reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | list(string) | `[]` | no |
 | resource\_group\_name |  | string | n/a | yes |
-| sku | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
+| sku\_name | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
 | stack |  | string | n/a | yes |
 | tenant\_id | The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Default is the current one. | string | `""` | no |
 

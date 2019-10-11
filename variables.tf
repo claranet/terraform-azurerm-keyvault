@@ -108,3 +108,8 @@ variable "logs_log_analytics_workspace_id" {
   default     = ""
 }
 
+variable "network_acls" {
+  description = "Map object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations."
+  type        = map(string)
+  default     = null
+}
