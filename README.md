@@ -73,9 +73,9 @@ module "key_vault" {
   network_acls = {
     bypass         = "None"
     default_action = "Deny"
-    ip_rules       = "10.10.0.0/26,1.2.3.4/32"
+    ip_rules       = ["10.10.0.0/26", "1.2.3.4/32"]
 
-    virtual_network_subnet_ids = join(",", module.subnet.subnet_ids)
+    virtual_network_subnet_ids = module.subnet.subnet_ids
   }
 }
 ```
