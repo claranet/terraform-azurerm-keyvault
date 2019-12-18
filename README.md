@@ -1,9 +1,9 @@
 # Azure Key Vault feature
 [![Changelog](https://img.shields.io/badge/changelog-release-green.svg)](CHANGELOG.md) [![Notice](https://img.shields.io/badge/notice-copyright-yellow.svg)](NOTICE) [![Apache V2 License](https://img.shields.io/badge/license-Apache%20V2-orange.svg)](LICENSE) [![TF Registry](https://img.shields.io/badge/terraform-registry-blue.svg)](https://registry.terraform.io/modules/claranet/keyvault/azurerm/)
 
-This Terraform module creates an [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/) 
-with "reader" and "admin" pre-configured [Access policies](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 
-and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging) 
+This Terraform module creates an [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/)
+with "reader" and "admin" pre-configured [Access policies](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies)
+and [Diagnostic settings](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)
 enabled.
 
 ## Requirements
@@ -84,7 +84,7 @@ module "key_vault" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | list(string) | `[]` | no | 
+| admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | list(string) | `[]` | no |
 | client\_name |  | string | n/a | yes |
 | custom\_name | Name of the Key Vault, generated if not set. | string | `""` | no |
 | enable\_logs\_to\_log\_analytics | Boolean flag to specify whether the logs should be sent to Log Analytics | string | `"false"` | no |
@@ -99,7 +99,8 @@ module "key_vault" {
 | logs\_log\_analytics\_workspace\_id | Log Analytics Workspace id for logs | string | `""` | no |
 | logs\_storage\_account\_id | Storage Account id for logs | string | `""` | no |
 | logs\_storage\_retention | Retention in days for logs on Storage Account | string | `"30"` | no |
-| network\_acls | Map object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | map(string) | `"null"` | no |
+| network\_acls | Map object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for
+more informations. | object | `"null"` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | list(string) | `[]` | no |
 | resource\_group\_name |  | string | n/a | yes |
 | sku\_name | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
