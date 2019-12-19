@@ -13,13 +13,13 @@ resource "azurerm_key_vault" "keyvault" {
   enabled_for_template_deployment = var.enabled_for_template_deployment
 
   dynamic "network_acls" {
-    for_each = list(var.network_acls)
+    for_each = var.network_acls == null ? [] : list(var.network_acls)
     iterator = acl
     content {
-      bypass                     = lookup(acl.value, "bypass", "None")
-      default_action             = lookup(acl.value, "default_action", "Deny")
-      ip_rules                   = lookup(acl.value, "ip_rules", null)
-      virtual_network_subnet_ids = lookup(acl.value, "virtual_network_subnet_ids", null)
+      bypass                     = coalesce(acl.value.bypass, "None")
+      default_action             = coalesce(acl.value.default_action, "Deny")
+      ip_rules                   = acl.value.ip_rules
+      virtual_network_subnet_ids = acl.value.virtual_network_subnet_ids
     }
   }
 
