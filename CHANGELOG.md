@@ -1,3 +1,8 @@
+# v2.1.0 - Unreleased
+
+Added
+  * AZ-132: Option to customize Keyvault Network ACLs
+
 # v2.0.1 - 2019-10-07
 
 Changed
