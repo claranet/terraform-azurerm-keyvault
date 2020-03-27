@@ -99,8 +99,7 @@ module "key_vault" {
 | logs\_log\_analytics\_workspace\_id | Log Analytics Workspace id for logs | string | `""` | no |
 | logs\_storage\_account\_id | Storage Account id for logs | string | `""` | no |
 | logs\_storage\_retention | Retention in days for logs on Storage Account | string | `"30"` | no |
-| network\_acls | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for
-more informations. | object | `"null"` | no |
+| network\_acls | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | object | `"null"` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | list(string) | `[]` | no |
 | resource\_group\_name |  | string | n/a | yes |
 | sku\_name | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | string | `"standard"` | no |
