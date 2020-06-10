@@ -1,17 +1,21 @@
 variable "client_name" {
-  type = string
+  description = "Client name"
+  type        = string
 }
 
 variable "environment" {
-  type = string
+  description = "Environment name"
+  type        = string
 }
 
 variable "stack" {
-  type = string
+  description = "Stack name"
+  type        = string
 }
 
 variable "resource_group_name" {
-  type = string
+  description = "Resource Group the resources will belong to"
+  type        = string
 }
 
 variable "location" {
@@ -50,20 +54,20 @@ variable "custom_name" {
 
 variable "enabled_for_deployment" {
   description = "Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault."
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "enabled_for_disk_encryption" {
   description = "Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys."
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "enabled_for_template_deployment" {
   description = "Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault."
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "admin_objects_ids" {
@@ -80,20 +84,20 @@ variable "reader_objects_ids" {
 
 variable "enable_logs_to_storage" {
   description = "Boolean flag to specify whether the logs should be sent to the Storage Account"
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "enable_logs_to_log_analytics" {
   description = "Boolean flag to specify whether the logs should be sent to Log Analytics"
-  type        = string
-  default     = "false"
+  type        = bool
+  default     = false
 }
 
 variable "logs_storage_retention" {
   description = "Retention in days for logs on Storage Account"
-  type        = string
-  default     = "30"
+  type        = number
+  default     = 30
 }
 
 variable "logs_storage_account_id" {
