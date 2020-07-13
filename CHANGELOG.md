@@ -1,4 +1,4 @@
-# v2.2.0 / v3.0.0 - Unreleased
+# v2.2.0/v3.0.0 - 2020-07-13
 
 Breaking
   * AZ-206: Update README, module compatible both AzureRM provider < 2.0 and >= 2.0 + update variables types
