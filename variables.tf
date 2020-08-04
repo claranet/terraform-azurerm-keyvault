@@ -123,3 +123,13 @@ variable "network_acls" {
     virtual_network_subnet_ids = list(string),
   })
 }
+
+variable "purge_protection_enabled" {
+  description = "Whether to activate purge protection"
+  default     = false
+}
+
+variable "soft_delete_enabled" {
+  description = "Whether to activate soft delete"
+  default     = false
+}

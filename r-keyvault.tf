@@ -12,6 +12,9 @@ resource "azurerm_key_vault" "keyvault" {
   enabled_for_disk_encryption     = var.enabled_for_disk_encryption
   enabled_for_template_deployment = var.enabled_for_template_deployment
 
+  soft_delete_enabled      = var.soft_delete_enabled
+  purge_protection_enabled = var.purge_protection_enabled
+
   dynamic "network_acls" {
     for_each = var.network_acls == null ? [] : list(var.network_acls)
     iterator = acl
