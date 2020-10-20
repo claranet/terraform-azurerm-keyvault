@@ -1,3 +1,8 @@
+# v3.0.1 - 2020-10-20
+
+Added
+  * AZ-248: Force soft_delete_enabled true, add parameter for purge_protection_enabled
+
 # v2.2.0/v3.0.0 - 2020-07-13
 
 Breaking
