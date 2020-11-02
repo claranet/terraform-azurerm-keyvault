@@ -1,3 +1,13 @@
+# v3.0.2/v4.0.0 - unreleased
+
+Changed
+  * AZ-273: Update README and CI, module compatible Terraform 0.13+ (now requires Terraform 0.12.26 minimum version)
+
+# v3.0.1 - 2020-10-20
+
+Added
+  * AZ-248: Force `soft_delete_enabled` value to `true`, add a parameter for `purge_protection_enabled`
+
 # v2.2.0/v3.0.0 - 2020-07-13
 
 Breaking
