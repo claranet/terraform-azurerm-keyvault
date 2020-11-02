@@ -127,5 +127,5 @@ variable "network_acls" {
 variable "purge_protection_enabled" {
   description = "Whether to activate purge protection"
   type        = bool
-  default     = false
+  default     = true
 }
