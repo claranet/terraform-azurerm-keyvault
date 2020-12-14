@@ -5,7 +5,7 @@ locals {
   }
 
   # Generate prefix, truncate it to 21 characters and add "-kv" suffix
-  name_prefix = "${var.stack}-${var.client_name}-${var.environment}"
+  name_prefix = lower("${var.stack}-${var.client_name}-${var.environment}")
   name = coalesce(
     var.custom_name,
     replace(
