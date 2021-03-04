@@ -1,3 +1,8 @@
+# Unreleased
+
+Changed
+  * AZ-458: normalizing the casing of the permissions to comply with provider changes https://github.com/terraform-providers/terraform-provider-azurerm/pull/10593
+
 # v4.1.0 - 2021-01-15
 
 Changed

@@ -6,18 +6,18 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
   key_vault_id = azurerm_key_vault.keyvault.id
 
   key_permissions = [
-    "get",
-    "list",
+    "Get",
+    "List",
   ]
 
   secret_permissions = [
-    "get",
-    "list",
+    "Get",
+    "List",
   ]
 
   certificate_permissions = [
-    "get",
-    "list",
+    "Get",
+    "List",
   ]
 }
 
@@ -29,52 +29,52 @@ resource "azurerm_key_vault_access_policy" "admin_policy" {
   key_vault_id = azurerm_key_vault.keyvault.id
 
   key_permissions = [
-    "backup",
-    "create",
-    "decrypt",
-    "delete",
-    "encrypt",
-    "get",
-    "import",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "sign",
-    "unwrapKey",
-    "update",
-    "verify",
-    "wrapKey",
+    "Backup",
+    "Create",
+    "Decrypt",
+    "Delete",
+    "Encrypt",
+    "Get",
+    "Import",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Sign",
+    "UnwrapKey",
+    "Update",
+    "Verify",
+    "WrapKey",
   ]
 
   secret_permissions = [
-    "backup",
-    "delete",
-    "get",
-    "list",
-    "purge",
-    "recover",
-    "restore",
-    "set",
+    "Backup",
+    "Delete",
+    "Get",
+    "List",
+    "Purge",
+    "Recover",
+    "Restore",
+    "Set",
   ]
 
   certificate_permissions = [
-    "backup",
-    "create",
-    "delete",
-    "deleteissuers",
-    "get",
-    "getissuers",
-    "import",
-    "list",
-    "listissuers",
-    "managecontacts",
-    "manageissuers",
-    "purge",
-    "recover",
-    "restore",
-    "setissuers",
-    "update",
+    "Backup",
+    "Create",
+    "Delete",
+    "DeleteIssuers",
+    "Get",
+    "GetIssuers",
+    "Import",
+    "List",
+    "ListIssuers",
+    "ManageContacts",
+    "ManageIssuers",
+    "Purge",
+    "Recover",
+    "Restore",
+    "SetIssuers",
+    "Update",
   ]
 }
 
