@@ -1,4 +1,4 @@
-# v4.3.0 - unreleased
+# v4.3.0 - 2021-04-21
 
 Breaking
   * AZ-482: `soft_delete_enabled` is now deprecated since provider [v2.42.0](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG-v2.md#2420-january-08-2021) and should be removed from this module.
@@ -7,7 +7,7 @@ Breaking
 # v4.2.0 - 2021-03-09
 
 Changed
-  * AZ-458: normalizing the casing of the permissions to comply with provider changes https://github.com/terraform-providers/terraform-provider-azurerm/pull/10593
+  * AZ-458: Normalizing the casing of the permissions to comply with provider changes https://github.com/terraform-providers/terraform-provider-azurerm/pull/10593
 
 # v4.1.0 - 2021-01-15
 
