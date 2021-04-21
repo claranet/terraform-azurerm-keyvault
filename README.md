@@ -61,10 +61,15 @@ module "key_vault" {
     data.terraform_remote_state.run.outputs.log_analytics_workspace_id,
   ]
 
-  reader_objects_ids = var.webapp_service_principal_id
+  # WebApp or other applications Object IDs
+  reader_objects_ids = [
+    var.webapp_service_principal_id
+  ]
 
   # Current user should be here to be able to create keys and secrets
-  admin_objects_ids = data.azuread_group.admin_group.id
+  admin_objects_ids = [
+    data.azuread_group.admin_group.id
+  ]
 
   # Specify Network ACLs
   network_acls = {
