@@ -14,4 +14,3 @@ include:
     ref: master
     file: '/module-tf_0.15-azurerm_2.x-validate.yml'
 ...
-

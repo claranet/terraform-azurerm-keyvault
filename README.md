@@ -56,16 +56,20 @@ module "key_vault" {
   resource_group_name = module.rg.resource_group_name
   stack               = var.stack
 
-  enable_logs_to_storage  = "true"
-  logs_storage_account_id = data.terraform_remote_state.run.outputs.logs_storage_account_id
+  logs_destinations_ids = [
+    data.terraform_remote_state.run.outputs.logs_storage_account_id,
+    data.terraform_remote_state.run.outputs.log_analytics_workspace_id,
+  ]
 
-  enable_logs_to_log_analytics    = "true"
-  logs_log_analytics_workspace_id = data.terraform_remote_state.run.outputs.log_analytics_workspace_id
-
-  reader_objects_ids = var.webapp_service_principal_id
+  # WebApp or other applications Object IDs
+  reader_objects_ids = [
+    var.webapp_service_principal_id
+  ]
 
   # Current user should be here to be able to create keys and secrets
-  admin_objects_ids = data.azuread_group.admin_group.id
+  admin_objects_ids = [
+    data.azuread_group.admin_group.id
+  ]
 
   # Specify Network ACLs
   network_acls = {
@@ -85,8 +89,6 @@ module "key_vault" {
 | admin\_objects\_ids | Ids of the objects that can do all operations on all keys, secrets and certificates | `list(string)` | `[]` | no |
 | client\_name | Client name | `string` | n/a | yes |
 | custom\_name | Name of the Key Vault, generated if not set. | `string` | `""` | no |
-| enable\_logs\_to\_log\_analytics | Boolean flag to specify whether the logs should be sent to Log Analytics | `bool` | `false` | no |
-| enable\_logs\_to\_storage | Boolean flag to specify whether the logs should be sent to the Storage Account | `bool` | `false` | no |
 | enabled\_for\_deployment | Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | `bool` | `false` | no |
 | enabled\_for\_disk\_encryption | Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | `bool` | `false` | no |
 | enabled\_for\_template\_deployment | Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | `bool` | `false` | no |
@@ -94,9 +96,10 @@ module "key_vault" {
 | extra\_tags | Extra tags to add | `map(string)` | `{}` | no |
 | location | Azure location for Key Vault. | `string` | n/a | yes |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
-| logs\_log\_analytics\_workspace\_id | Log Analytics Workspace id for logs | `string` | `""` | no |
-| logs\_storage\_account\_id | Storage Account id for logs | `string` | `""` | no |
-| logs\_storage\_retention | Retention in days for logs on Storage Account | `number` | `30` | no |
+| logs\_categories | Log categories to send to destinations. | `list(string)` | `null` | no |
+| logs\_destinations\_ids | List of destination resources Ids for logs diagnostics destination. Can be Storage Account, Log Analytics Workspace and Event Hub. No more than one of each can be set. Empty list to disable logging. | `list(string)` | `null` | no |
+| logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
+| logs\_retention\_days | Number of days to keep logs on storage account | `number` | `null` | no |
 | network\_acls | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | <pre>object({<br>    bypass                     = string,<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>    virtual_network_subnet_ids = list(string),<br>  })</pre> | `null` | no |
 | purge\_protection\_enabled | Whether to activate purge protection | `bool` | `true` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | `list(string)` | `[]` | no |
