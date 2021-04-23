@@ -99,7 +99,7 @@ module "key_vault" {
 | logs\_categories | Log categories to send to destinations. | `list(string)` | `null` | no |
 | logs\_destinations\_ids | List of destination resources Ids for logs diagnostics destination. Can be Storage Account, Log Analytics Workspace and Event Hub. No more than one of each can be set. Empty list to disable logging. | `list(string)` | `null` | no |
 | logs\_metrics\_categories | Metrics categories to send to destinations. | `list(string)` | `null` | no |
-| logs\_retention\_days | Number of days to keep logs on storage account | `number` | `null` | no |
+| logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` | no |
 | network\_acls | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | <pre>object({<br>    bypass                     = string,<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>    virtual_network_subnet_ids = list(string),<br>  })</pre> | `null` | no |
 | purge\_protection\_enabled | Whether to activate purge protection | `bool` | `true` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | `list(string)` | `[]` | no |
