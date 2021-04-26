@@ -121,5 +121,5 @@ variable "logs_metrics_categories" {
 variable "logs_retention_days" {
   type        = number
   description = "Number of days to keep logs on storage account"
-  default     = null
+  default     = 30
 }

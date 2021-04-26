@@ -1,3 +1,8 @@
+# Unreleased
+
+Changed
+  * AZ-160: Fix default logs retention
+
 # v4.3.0 - 2021-04-21
 
 Breaking
