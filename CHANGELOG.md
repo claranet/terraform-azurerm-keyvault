@@ -2,6 +2,7 @@
 
 Changed
   * AZ-160: Change `logs_destinations_ids`, must be mandatory
+  * AZ-495: Module code upgrade, now compatible with Terraform `0.15+`
 
 # v4.3.1 - 2021-04-26
 
