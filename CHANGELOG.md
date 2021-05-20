@@ -1,4 +1,4 @@
-# v4.4.0 - unreleased
+# v4.4.0 - 2021-05-21
 
 Changed
   * AZ-160: Change `logs_destinations_ids`, must be mandatory
