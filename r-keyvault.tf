@@ -15,8 +15,9 @@ resource "azurerm_key_vault" "keyvault" {
   purge_protection_enabled = var.purge_protection_enabled
 
   dynamic "network_acls" {
-    for_each = var.network_acls == null ? [] : list(var.network_acls)
+    for_each = var.network_acls == null ? [] : [var.network_acls]
     iterator = acl
+
     content {
       bypass                     = coalesce(acl.value.bypass, "None")
       default_action             = coalesce(acl.value.default_action, "Deny")
