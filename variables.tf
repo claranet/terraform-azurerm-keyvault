@@ -23,11 +23,6 @@ variable "location" {
   type        = string
 }
 
-variable "location_short" {
-  description = "Short string for Azure location."
-  type        = string
-}
-
 variable "tenant_id" {
   description = "The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Default is the current one."
   type        = string
