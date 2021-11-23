@@ -117,3 +117,10 @@ variable "logs_retention_days" {
   description = "Number of days to keep logs on storage account"
   default     = 30
 }
+
+variable "rbac_authorization_enabled" {
+  type        = bool
+  description = "Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions."
+  default     = false
+}
+
