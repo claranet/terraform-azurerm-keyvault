@@ -1,5 +1,5 @@
 resource "azurerm_key_vault_access_policy" "readers_policy" {
-  for_each = toset(var.reader_objects_ids)
+  for_each = var.rbac_authorization_enabled ? null : toset(var.reader_objects_ids)
 
   object_id    = each.value
   tenant_id    = local.tenant_id
@@ -22,7 +22,7 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
 }
 
 resource "azurerm_key_vault_access_policy" "admin_policy" {
-  for_each = toset(var.admin_objects_ids)
+  for_each = var.rbac_authorization_enabled ? null : toset(var.admin_objects_ids)
 
   object_id    = each.value
   tenant_id    = local.tenant_id
