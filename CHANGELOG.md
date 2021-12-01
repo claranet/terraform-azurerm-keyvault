@@ -1,8 +1,8 @@
 # unreleased
 
-Changed
-  * AZ-609: Add enable_rbac_authorization parameter 
-  * AZ-609: Configure readers_policy and admins_policy when enable_rbac_authorization is used
+Added
+  * AZ-609: Add `enable_rbac_authorization` parameter 
+  * AZ-609: Configure readers and admins role assignments when using RBAC authorization
 
 # v4.4.2 - 2021-10-26
 
