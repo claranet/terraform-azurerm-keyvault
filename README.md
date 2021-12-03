@@ -22,6 +22,8 @@ This module is optimized to work with the [Claranet terraform-wrapper](https://g
 which set some terraform variables in the environment needed by this module.
 More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
+**Note :** If you use `rbac_authorization_enabled` parameter, you should be owner of the subscription where the keyvault stands.
+
 You can use this module by including it this way:
 
 ```hcl
