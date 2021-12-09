@@ -41,12 +41,6 @@ variable "extra_tags" {
   default     = {}
 }
 
-variable "custom_name" {
-  description = "Name of the Key Vault, generated if not set."
-  type        = string
-  default     = ""
-}
-
 variable "enabled_for_deployment" {
   description = "Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault."
   type        = bool
@@ -95,32 +89,8 @@ variable "purge_protection_enabled" {
   default     = true
 }
 
-variable "logs_destinations_ids" {
-  type        = list(string)
-  description = "List of destination resources Ids for logs diagnostics destination. Can be Storage Account, Log Analytics Workspace and Event Hub. No more than one of each can be set. Empty list to disable logging."
-}
-
-variable "logs_categories" {
-  type        = list(string)
-  description = "Log categories to send to destinations."
-  default     = null
-}
-
-variable "logs_metrics_categories" {
-  type        = list(string)
-  description = "Metrics categories to send to destinations."
-  default     = null
-}
-
-variable "logs_retention_days" {
-  type        = number
-  description = "Number of days to keep logs on storage account"
-  default     = 30
-}
-
 variable "rbac_authorization_enabled" {
   type        = bool
   description = "Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies."
   default     = false
 }
-
