@@ -10,22 +10,14 @@ resource "azurerm_role_assignment" "rbac_keyvault_secrets_readers" {
   for_each = toset(var.rbac_authorization_enabled ? var.reader_objects_ids : [])
 
   scope                = azurerm_key_vault.keyvault.id
-  role_definition_name = "Key Vault Secrets User"
+  role_definition_name = "Key Vault Reader"
   principal_id         = each.value
 }
 
-resource "azurerm_role_assignment" "rbac_keyvault_cryptos_users" {
+resource "azurerm_role_assignment" "rbac_keyvault_reader" {
   for_each = toset(var.rbac_authorization_enabled ? var.reader_objects_ids : [])
 
   scope                = azurerm_key_vault.keyvault.id
-  role_definition_name = "Key Vault Crypto User"
-  principal_id         = each.value
-}
-
-resource "azurerm_role_assignment" "rbac_keyvault_certificates_officers" {
-  for_each = toset(var.rbac_authorization_enabled ? var.reader_objects_ids : [])
-
-  scope                = azurerm_key_vault.keyvault.id
-  role_definition_name = "Key Vault Certificates Officer"
+  role_definition_name = "Key Vault Reader"
   principal_id         = each.value
 }
