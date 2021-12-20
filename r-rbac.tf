@@ -6,11 +6,11 @@ resource "azurerm_role_assignment" "rbac_keyvault_administrator" {
   principal_id         = each.value
 }
 
-resource "azurerm_role_assignment" "rbac_keyvault_secrets_readers" {
+resource "azurerm_role_assignment" "rbac_keyvault_secrets_users" {
   for_each = toset(var.rbac_authorization_enabled ? var.reader_objects_ids : [])
 
   scope                = azurerm_key_vault.keyvault.id
-  role_definition_name = "Key Vault Reader"
+  role_definition_name = "Key Vault Secrets User"
   principal_id         = each.value
 }
 
