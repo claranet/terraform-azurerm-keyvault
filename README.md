@@ -22,7 +22,7 @@ This module is optimized to work with the [Claranet terraform-wrapper](https://g
 which set some terraform variables in the environment needed by this module.
 More details about variables set by the `terraform-wrapper` available in the [documentation](https://github.com/claranet/terraform-wrapper#environment).
 
-**Note :** If you use `rbac_authorization_enabled` parameter, you should be owner of the subscription where the keyvault stands.
+**Note :** If you use `rbac_authorization_enabled` parameter, you must have the [Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) or [User Access Administrator](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#user-access-administrator) role on the Key Vault.
 
 You can use this module by including it this way:
 
@@ -216,7 +216,7 @@ module "key_vault" {
 | logs\_retention\_days | Number of days to keep logs on storage account | `number` | `30` | no |
 | network\_acls | Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations. | <pre>object({<br>    bypass                     = string,<br>    default_action             = string,<br>    ip_rules                   = list(string),<br>    virtual_network_subnet_ids = list(string),<br>  })</pre> | `null` | no |
 | purge\_protection\_enabled | Whether to activate purge protection | `bool` | `true` | no |
-| rbac\_authorization\_enabled | Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. | `bool` | `false` | no |
+| rbac\_authorization\_enabled | Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies. | `bool` | `false` | no |
 | reader\_objects\_ids | Ids of the objects that can read all keys, secrets and certificates | `list(string)` | `[]` | no |
 | resource\_group\_name | Resource Group the resources will belong to | `string` | n/a | yes |
 | sku\_name | The Name of the SKU used for this Key Vault. Possible values are "standard" and "premium". | `string` | `"standard"` | no |

@@ -120,7 +120,7 @@ variable "logs_retention_days" {
 
 variable "rbac_authorization_enabled" {
   type        = bool
-  description = "Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions."
+  description = "Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies."
   default     = false
 }
 
