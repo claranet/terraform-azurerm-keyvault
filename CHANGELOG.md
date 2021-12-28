@@ -1,4 +1,4 @@
-# unreleased
+# v4.5.0 - 2021-12-28
 
 Added
   * AZ-609: Add `enable_rbac_authorization` parameter 
