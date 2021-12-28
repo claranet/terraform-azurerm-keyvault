@@ -14,6 +14,8 @@ resource "azurerm_key_vault" "keyvault" {
 
   purge_protection_enabled = var.purge_protection_enabled
 
+  enable_rbac_authorization = var.rbac_authorization_enabled
+
   dynamic "network_acls" {
     for_each = var.network_acls == null ? [] : [var.network_acls]
     iterator = acl
