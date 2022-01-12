@@ -1,7 +1,6 @@
 module "diagnostics" {
-  # source  = "claranet/diagnostic-settings/azurerm"
-  # version = "4.0.3"
-  source = "git::ssh://git@git.fr.clara.net/claranet/projects/cloud/azure/terraform/modules/diagnostic-settings.git?ref=AZ-515_caf_naming"
+  source  = "claranet/diagnostic-settings/azurerm"
+  version = "5.0.0"
 
   resource_id = azurerm_key_vault.keyvault.id
 
