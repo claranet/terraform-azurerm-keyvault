@@ -38,6 +38,7 @@ module "key_vault" {
   client_name         = var.client_name
   environment         = var.environment
   location            = module.azure_region.location
+  location_short      = module.azure_region.location_short
   resource_group_name = module.rg.resource_group_name
   stack               = var.stack
 
