@@ -1,3 +1,8 @@
+# Unreleased
+
+Added
+  * AZ-615: Add an option to enable or disable default tags
+
 # v5.0.0 - 2022-01-13
 
 Breaking
@@ -7,7 +12,7 @@ Breaking
 # v4.5.0 - 2021-12-28
 
 Added
-  * AZ-609: Add `enable_rbac_authorization` parameter 
+  * AZ-609: Add `enable_rbac_authorization` parameter
   * AZ-609: Configure readers and admins role assignments when using RBAC authorization
 
 # v4.4.2 - 2021-10-26
