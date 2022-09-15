@@ -1,3 +1,9 @@
+# Unreleased
+
+Breaking
+  * AZ-839: Require Terraform 1.1+ and AzureRM provider `v3.22+`
+  * AZ-839: Bump `diagnostics` module
+
 # v5.1.0 - 2022-02-03
 
 Added

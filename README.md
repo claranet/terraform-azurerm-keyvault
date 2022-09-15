@@ -180,13 +180,13 @@ module "key_vault" {
 | Name | Version |
 |------|---------|
 | azurecaf | ~> 1.1 |
-| azurerm | >= 2.48 |
+| azurerm | ~> 3.22 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| diagnostics | claranet/diagnostic-settings/azurerm | 5.0.0 |
+| diagnostics | claranet/diagnostic-settings/azurerm | 6.0.0 |
 
 ## Resources
 
