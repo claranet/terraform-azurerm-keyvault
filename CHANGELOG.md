@@ -1,4 +1,4 @@
-# Unreleased
+# v6.0.0 - 2022-09-30
 
 Breaking
   * AZ-839: Require Terraform 1.1+ and AzureRM provider `v3.22+`
