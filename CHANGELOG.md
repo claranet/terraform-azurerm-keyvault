@@ -1,4 +1,4 @@
-# Unreleased
+# v7.0.0 - 2022-11-10
 
 Added
   * AZ-901: Add `soft_delete_retention_days` variable
