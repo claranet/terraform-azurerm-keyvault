@@ -3,6 +3,9 @@
 Added
   * AZ-901: Add `soft_delete_retention_days` variable
 
+Breaking
+  * AZ-901: Require Terraform 1.3+
+
 # v6.0.0 - 2022-09-30
 
 Breaking
