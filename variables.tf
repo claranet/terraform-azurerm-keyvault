@@ -71,21 +71,29 @@ variable "reader_objects_ids" {
 }
 
 variable "network_acls" {
-  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations."
-  default     = null
-
+  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations."
   type = object({
     bypass                     = string,
     default_action             = string,
-    ip_rules                   = list(string),
-    virtual_network_subnet_ids = list(string),
+    ip_rules                   = optional(list(string)),
+    virtual_network_subnet_ids = optional(list(string)),
   })
+  default = {
+    bypass         = "None"
+    default_action = "Deny"
+  }
 }
 
 variable "purge_protection_enabled" {
   description = "Whether to activate purge protection"
   type        = bool
   default     = true
+}
+
+variable "soft_delete_retention_days" {
+  description = "The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days."
+  type        = number
+  default     = 7
 }
 
 variable "rbac_authorization_enabled" {
