@@ -1,3 +1,8 @@
+# Unreleased
+
+Fixed
+  * AZ-901: Fix ACL default behavior
+
 # v7.0.0 - 2022-11-10
 
 Added

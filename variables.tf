@@ -71,17 +71,14 @@ variable "reader_objects_ids" {
 }
 
 variable "network_acls" {
-  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more informations."
+  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information."
   type = object({
-    bypass                     = string,
-    default_action             = string,
+    bypass                     = optional(string, "None"),
+    default_action             = optional(string, "Deny"),
     ip_rules                   = optional(list(string)),
     virtual_network_subnet_ids = optional(list(string)),
   })
-  default = {
-    bypass         = "None"
-    default_action = "Deny"
-  }
+  default = {}
 }
 
 variable "purge_protection_enabled" {
