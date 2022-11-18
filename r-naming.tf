@@ -1,4 +1,4 @@
-resource "azurecaf_name" "keyvault" {
+data "azurecaf_name" "keyvault" {
   name          = var.stack
   resource_type = "azurerm_key_vault"
   prefixes      = var.name_prefix == "" ? null : [local.name_prefix]
