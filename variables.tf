@@ -71,7 +71,7 @@ variable "reader_objects_ids" {
 }
 
 variable "public_network_access_enabled" {
-  description = "Is Key Vault available from Public network ?"
+  description = "Is KeyVault available from public network?"
   type        = bool
   default     = false
 }
