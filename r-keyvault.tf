@@ -17,6 +17,8 @@ resource "azurerm_key_vault" "keyvault" {
 
   enable_rbac_authorization = var.rbac_authorization_enabled
 
+  public_network_access_enabled = var.public_network_access_enabled
+
   dynamic "network_acls" {
     for_each = var.network_acls == null ? [] : [var.network_acls]
     iterator = acl
