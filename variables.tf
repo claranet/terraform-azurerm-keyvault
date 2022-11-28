@@ -70,6 +70,12 @@ variable "reader_objects_ids" {
   default     = []
 }
 
+variable "public_network_access_enabled" {
+  description = "Is Key Vault available from Public network ?"
+  type        = bool
+  default     = false
+}
+
 variable "network_acls" {
   description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information."
   type = object({
