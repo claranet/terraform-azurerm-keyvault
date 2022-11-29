@@ -1,4 +1,4 @@
-# Unreleased
+# v7.2.0 - 2022-11-29
 
 Add
   * [GH-1](https://github.com/claranet/terraform-azurerm-keyvault/pull/1): Add `public_network_access_enabled` parameter
