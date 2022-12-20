@@ -1,4 +1,4 @@
-# Unreleased
+# v7.2.1 - 2022-12-20
 
 Fixed
   * AZ-943: Fix README
