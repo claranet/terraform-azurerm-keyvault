@@ -1,9 +1,9 @@
 resource "azurerm_key_vault_access_policy" "readers_policy" {
-  for_each = toset(var.rbac_authorization_enabled ? [] : var.reader_objects_ids)
+  for_each = toset(var.rbac_authorization_enabled || var.managed_hardware_security_module_enabled ? [] : var.reader_objects_ids)
 
   object_id    = each.value
   tenant_id    = local.tenant_id
-  key_vault_id = azurerm_key_vault.keyvault.id
+  key_vault_id = one(azurerm_key_vault.keyvault[*].id)
 
   key_permissions = [
     "Get",
@@ -22,11 +22,11 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
 }
 
 resource "azurerm_key_vault_access_policy" "admin_policy" {
-  for_each = toset(var.rbac_authorization_enabled ? [] : var.admin_objects_ids)
+  for_each = toset(var.rbac_authorization_enabled || var.managed_hardware_security_module_enabled ? [] : var.admin_objects_ids)
 
   object_id    = each.value
   tenant_id    = local.tenant_id
-  key_vault_id = azurerm_key_vault.keyvault.id
+  key_vault_id = one(azurerm_key_vault.keyvault[*].id)
 
   key_permissions = [
     "Backup",

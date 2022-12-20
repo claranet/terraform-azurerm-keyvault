@@ -1,4 +1,6 @@
 resource "azurerm_key_vault" "keyvault" {
+  count = var.managed_hardware_security_module_enabled ? 0 : 1
+
   name = local.name
 
   location            = var.location

@@ -1,3 +1,11 @@
+# Unreleased
+
+Added
+  * AZ-944: KeyVault managed HSM support
+
+Changed
+  * AZ-944: KeyVault managed HSM requires Terraform AzureRM provider `v3.36+`
+
 # v7.2.1 - 2022-12-20
 
 Fixed
@@ -5,7 +13,7 @@ Fixed
 
 # v7.2.0 - 2022-11-29
 
-Add
+Added
   * [GH-1](https://github.com/claranet/terraform-azurerm-keyvault/pull/1): Add `public_network_access_enabled` parameter
 
 # v7.1.0 - 2022-11-23
