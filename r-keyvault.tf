@@ -35,3 +35,8 @@ resource "azurerm_key_vault" "keyvault" {
 
   tags = merge(local.default_tags, var.extra_tags)
 }
+
+moved {
+  from = azurerm_key_vault.keyvault
+  to   = azurerm_key_vault.keyvault[0]
+}

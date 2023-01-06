@@ -1,5 +1,5 @@
 resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
-  count = var.managed_hardware_security_module_enabled ? 0 : 1
+  count = var.managed_hardware_security_module_enabled ? 1 : 0
 
   name = local.hsm_name
 
