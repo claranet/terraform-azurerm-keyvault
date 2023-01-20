@@ -1,4 +1,4 @@
-# Unreleased
+# v7.3.0 - 2023-01-20
 
 Added
   * AZ-944: KeyVault managed HSM support
