@@ -1,3 +1,8 @@
+# Unreleased
+
+Breaking
+  * AZ-1038: Swap location and env order for KeyVault naming. Use `var.custom_name` to keep your KeyVault when upgrading.
+
 # v7.3.0 - 2023-01-20
 
 Added
