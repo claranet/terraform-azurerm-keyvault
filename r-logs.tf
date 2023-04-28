@@ -1,6 +1,6 @@
 module "diagnostics" {
   source  = "claranet/diagnostic-settings/azurerm"
-  version = "6.2.0"
+  version = "~> 6.4.1"
 
   resource_id = one(concat(azurerm_key_vault.keyvault[*].id, azurerm_key_vault_managed_hardware_security_module.keyvault_hsm[*].id))
 
