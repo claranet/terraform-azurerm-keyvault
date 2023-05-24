@@ -1,3 +1,8 @@
+# v7.4.1 - 2023-05-24
+
+Fixed
+  *  AZ-993: Bump `diagnostics` module, ignore provider v4.0 deprecation warning
+
 # v7.4.0 - 2023-04-14
 
 Breaking
