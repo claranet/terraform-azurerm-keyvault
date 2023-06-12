@@ -15,5 +15,5 @@ data "azurecaf_name" "keyvault_hsm" {
   suffixes      = compact([var.client_name, var.location_short, var.environment, local.name_suffix, var.use_caf_naming ? "hsm" : "kvhsm"])
   use_slug      = var.use_caf_naming
   clean_input   = true
-  separator     = "-"
+  separator     = ""
 }
