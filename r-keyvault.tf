@@ -24,7 +24,6 @@ resource "azurerm_key_vault" "keyvault" {
   dynamic "network_acls" {
     for_each = var.network_acls == null ? [] : [var.network_acls]
     iterator = acl
-
     content {
       bypass                     = acl.value.bypass
       default_action             = acl.value.default_action

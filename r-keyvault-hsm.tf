@@ -10,7 +10,6 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
 
   sku_name = "Standard_B1"
 
-
   purge_protection_enabled   = var.purge_protection_enabled
   soft_delete_retention_days = var.soft_delete_retention_days
 
@@ -21,7 +20,6 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
   dynamic "network_acls" {
     for_each = var.network_acls == null ? [] : [var.network_acls]
     iterator = acl
-
     content {
       bypass         = acl.value.bypass
       default_action = acl.value.default_action
