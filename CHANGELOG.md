@@ -1,4 +1,4 @@
-# Unreleased
+# v7.4.2 - 2023-06-16
 
 Fixed
   * AZ-1099: Fix HSM Key Vault naming
