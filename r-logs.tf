@@ -1,7 +1,6 @@
 module "diagnostics" {
-  # source  = "claranet/diagnostic-settings/azurerm"
-  # version = "~> 6.5.0"
-  source = "git@git.fr.clara.net:claranet/projects/cloud/azure/terraform/modules/diagnostic-settings.git?ref=AZ-1153_drop_retention_param"
+  source  = "claranet/diagnostic-settings/azurerm"
+  version = "~> 6.5.0"
 
   resource_id = one(concat(azurerm_key_vault.keyvault[*].id, azurerm_key_vault_managed_hardware_security_module.keyvault_hsm[*].id))
 

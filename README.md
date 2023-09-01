@@ -114,7 +114,7 @@ module "key_vault" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| diagnostics | git@git.fr.clara.net:claranet/projects/cloud/azure/terraform/modules/diagnostic-settings.git | AZ-1153_drop_retention_param |
+| diagnostics | claranet/diagnostic-settings/azurerm | ~> 6.5.0 |
 
 ## Resources
 
