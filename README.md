@@ -145,6 +145,8 @@ module "key_vault" {
 | enabled\_for\_template\_deployment | Whether Azure Resource Manager is permitted to retrieve secrets from the Key Vault. | `bool` | `false` | no |
 | environment | Environment name | `string` | n/a | yes |
 | extra\_tags | Extra tags to add. | `map(string)` | `{}` | no |
+| hsm\_security\_domain\_certificates | List of keyvault certificates ids to be used as security domain certificates. | `list(string)` | `null` | no |
+| hsm\_security\_domain\_quorum | Number of security domain certificates needed to perform operations. | `number` | `null` | no |
 | location | Azure location for Key Vault. | `string` | n/a | yes |
 | location\_short | Short string for Azure location. | `string` | n/a | yes |
 | logs\_categories | Log categories to send to destinations. | `list(string)` | `null` | no |
@@ -169,6 +171,7 @@ module "key_vault" {
 
 | Name | Description |
 |------|-------------|
+| key\_vault\_hsm\_security\_domain | The security domain of the Key Vault Managed Hardware Security Module. |
 | key\_vault\_hsm\_uri | The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys. |
 | key\_vault\_id | ID of the Key Vault. |
 | key\_vault\_name | Name of the Key Vault. |

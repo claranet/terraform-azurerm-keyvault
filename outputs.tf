@@ -17,3 +17,9 @@ output "key_vault_hsm_uri" {
   description = "The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys."
   value       = one(azurerm_key_vault_managed_hardware_security_module.keyvault_hsm[*].hsm_uri)
 }
+
+output "key_vault_hsm_security_domain" {
+  description = "The security domain of the Key Vault Managed Hardware Security Module."
+  value       = one(azurerm_key_vault_managed_hardware_security_module.keyvault_hsm[*].security_domain_encrypted_data)
+  sensitive   = true
+}
