@@ -42,7 +42,7 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
     }
     precondition {
       condition     = try(var.hsm_security_domain_quorum >= 2 && var.hsm_security_domain_quorum <= 10, true)
-      error_message = "Valid values are between 2 and 10."
+      error_message = "`var.hsm_security_domain_quorum` valid values are between 2 and 10."
     }
   }
 }
