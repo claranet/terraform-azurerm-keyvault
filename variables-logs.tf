@@ -21,7 +21,7 @@ variable "logs_metrics_categories" {
   default     = null
 }
 
-variable "custom_diagnostic_settings_name" {
+variable "diagnostic_settings_custom_name" {
   description = "Custom name of the diagnostics settings, name will be 'default' if not set."
   type        = string
   default     = "default"

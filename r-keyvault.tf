@@ -1,4 +1,4 @@
-resource "azurerm_key_vault" "keyvault" {
+resource "azurerm_key_vault" "main" {
   count = var.managed_hardware_security_module_enabled ? 0 : 1
 
   name = local.name
@@ -38,4 +38,9 @@ resource "azurerm_key_vault" "keyvault" {
 moved {
   from = azurerm_key_vault.keyvault
   to   = azurerm_key_vault.keyvault[0]
+}
+
+moved {
+  from = azurerm_key_vault.keyvault[0]
+  to   = azurerm_key_vault.main[0]
 }

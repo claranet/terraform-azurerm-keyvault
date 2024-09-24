@@ -3,7 +3,7 @@ resource "azurerm_key_vault_access_policy" "readers_policy" {
 
   object_id    = each.value
   tenant_id    = local.tenant_id
-  key_vault_id = one(azurerm_key_vault.keyvault[*].id)
+  key_vault_id = one(azurerm_key_vault.main[*].id)
 
   key_permissions = [
     "Get",
@@ -26,7 +26,7 @@ resource "azurerm_key_vault_access_policy" "admin_policy" {
 
   object_id    = each.value
   tenant_id    = local.tenant_id
-  key_vault_id = one(azurerm_key_vault.keyvault[*].id)
+  key_vault_id = one(azurerm_key_vault.main[*].id)
 
   key_permissions = [
     "Backup",
@@ -77,4 +77,3 @@ resource "azurerm_key_vault_access_policy" "admin_policy" {
     "Update",
   ]
 }
-
