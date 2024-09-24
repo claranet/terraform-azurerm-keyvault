@@ -143,7 +143,7 @@ resource "azurerm_key_vault_certificate" "hsm_certs" {
 # trivy:ignore:azure-keyvault-ensure-secret-expiry
 resource "azurerm_key_vault_secret" "hsm_security_domain" {
   key_vault_id = module.key_vault.key_vault_id
-  name         = "hsm-seucrity-domain"
+  name         = "hsm-security-domain"
   value        = module.keyvault_hsm.key_vault_hsm_security_domain
   content_type = "application/json"
 }
