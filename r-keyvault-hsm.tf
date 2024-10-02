@@ -34,7 +34,7 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
   lifecycle {
     precondition {
       condition     = (var.hsm_security_domain_certificates != null && var.hsm_security_domain_quorum != null) || (var.hsm_security_domain_certificates == null && var.hsm_security_domain_quorum == null)
-      error_message = "All of `security_domain_key_vault_certificate_ids,security_domain_quorum` must be specified."
+      error_message = "Both `security_domain_key_vault_certificate_ids` & `security_domain_quorum` must be specified."
     }
     precondition {
       condition     = try(length(var.hsm_security_domain_certificates) >= 3 && length(var.hsm_security_domain_certificates) <= 10, true)
