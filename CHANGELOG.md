@@ -1,3 +1,19 @@
+## 7.7.0 (2024-10-04)
+
+### Features
+
+* **AZ-1461:** manage security domain certificates 3a34269
+
+### Miscellaneous Chores
+
+* apply suggestion 3c93880
+* **AZ-1461:** apply suggestion 1dabebf
+* **AZ-1461:** bump min provider version to 3.63 b017cac
+* **AZ-1461:** fix typo 23ae2e3
+* **AZ-1461:** improve error_message 1250620
+* **deps:** update dependency trivy to v0.56.1 bf9a040
+* **deps:** update terraform claranet/diagnostic-settings/azurerm to v7 535f948
+
 ## 7.6.0 (2024-10-03)
 
 ### Features
