@@ -26,5 +26,23 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
     }
   }
 
+  security_domain_key_vault_certificate_ids = var.hsm_security_domain_certificates
+  security_domain_quorum                    = var.hsm_security_domain_quorum
+
   tags = merge(local.default_tags, var.extra_tags)
+
+  lifecycle {
+    precondition {
+      condition     = (var.hsm_security_domain_certificates != null && var.hsm_security_domain_quorum != null) || (var.hsm_security_domain_certificates == null && var.hsm_security_domain_quorum == null)
+      error_message = "Both `security_domain_key_vault_certificate_ids` & `security_domain_quorum` must be specified."
+    }
+    precondition {
+      condition     = try(length(var.hsm_security_domain_certificates) >= 3 && length(var.hsm_security_domain_certificates) <= 10, true)
+      error_message = "`var.hsm_security_domain_certificates` valid values are between 3 and 10."
+    }
+    precondition {
+      condition     = try(var.hsm_security_domain_quorum >= 2 && var.hsm_security_domain_quorum <= 10, true)
+      error_message = "`var.hsm_security_domain_quorum` valid values are between 2 and 10."
+    }
+  }
 }
