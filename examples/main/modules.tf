@@ -10,18 +10,15 @@ module "key_vault" {
   environment         = var.environment
   location            = module.azure_region.location
   location_short      = module.azure_region.location_short
-  resource_group_name = module.rg.resource_group_name
+  resource_group_name = module.rg.name
   stack               = var.stack
 
   logs_destinations_ids = [
-    module.logs.logs_storage_account_id,
-    module.logs.log_analytics_workspace_id,
+    # module.logs.storage_account_id,
+    # module.logs.log_analytics_workspace_id,
   ]
 
-  # WebApp or other applications Object IDs
-  reader_objects_ids = [
-    var.webapp_service_principal_id
-  ]
+  reader_objects_ids = var.readers_object_ids
 
   # Current user should be here to be able to create keys and secrets
   admin_objects_ids = [

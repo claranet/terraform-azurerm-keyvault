@@ -14,12 +14,12 @@ module "key_vault" {
   environment         = var.environment
   location            = module.azure_region.location
   location_short      = module.azure_region.location_short
-  resource_group_name = module.rg.resource_group_name
+  resource_group_name = module.rg.name
   stack               = var.stack
 
   logs_destinations_ids = [
-    module.logs.logs_storage_account_id,
-    module.logs.log_analytics_workspace_id,
+    # module.logs.logs_storage_account_id,
+    # module.logs.log_analytics_workspace_id,
   ]
 
   # WebApp or other applications Object IDs
@@ -50,11 +50,11 @@ module "keyvault_hsm" {
   location_short = module.azure_region.location_short
 
   logs_destinations_ids = [
-    module.logs.logs_storage_account_id,
-    module.logs.log_analytics_workspace_id,
+    # module.logs.storage_account_id,
+    # module.logs.log_analytics_workspace_id,
   ]
 
-  resource_group_name = module.rg.resource_group_name
+  resource_group_name = module.rg.name
   stack               = var.stack
 
   managed_hardware_security_module_enabled = true
@@ -74,7 +74,7 @@ module "keyvault_hsm" {
 resource "azurerm_key_vault_certificate" "hsm_certs" {
   count = local.hsm_certificates_count
 
-  key_vault_id = module.key_vault.key_vault_id
+  key_vault_id = module.key_vault.id
   name         = "cert-hsm-${count.index}"
   certificate_policy {
     issuer_parameters {
@@ -111,8 +111,8 @@ resource "azurerm_key_vault_certificate" "hsm_certs" {
 
 # trivy:ignore:azure-keyvault-ensure-secret-expiry
 resource "azurerm_key_vault_secret" "hsm_security_domain" {
-  key_vault_id = module.key_vault.key_vault_id
+  key_vault_id = module.key_vault.id
   name         = "hsm-security-domain"
-  value        = module.keyvault_hsm.key_vault_hsm_security_domain
+  value        = module.keyvault_hsm.hsm_security_domain
   content_type = "application/json"
 }

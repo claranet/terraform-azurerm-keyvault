@@ -18,12 +18,14 @@ variable "stack" {
   type        = string
 }
 
+# tflint-ignore: terraform_unused_declarations
 variable "tenant_id" {
   description = "The Azure Active Directory tenant ID that should be used for authenticating requests to the Key Vault. Default is the current one."
   type        = string
   default     = ""
 }
 
+# tflint-ignore: terraform_unused_declarations
 variable "subscription_id" {
   description = "Subscription ID."
   type        = string
