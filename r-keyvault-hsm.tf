@@ -1,4 +1,4 @@
-resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
+resource "azurerm_key_vault_managed_hardware_security_module" "main" {
   count = var.managed_hardware_security_module_enabled ? 1 : 0
 
   name = local.hsm_name
@@ -45,4 +45,9 @@ resource "azurerm_key_vault_managed_hardware_security_module" "keyvault_hsm" {
       error_message = "`var.hsm_security_domain_quorum` valid values are between 2 and 10."
     }
   }
+}
+
+moved {
+  from = azurerm_key_vault_managed_hardware_security_module.keyvault_hsm[0]
+  to   = azurerm_key_vault_managed_hardware_security_module.main[0]
 }
