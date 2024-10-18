@@ -1,3 +1,32 @@
+## 8.0.0 (2024-10-18)
+
+### ⚠ BREAKING CHANGES
+
+* **AZ-1088:** rework module
+
+### Features
+
+* **AZ-1088:** rework module 57b1014
+
+### Documentation
+
+* **AZ-1088:** fix `logs_destinations_ids` variable description af4c4b1
+
+### Continuous Integration
+
+* **AZ-1088:** revert ci to master branch bff4414
+
+### Miscellaneous Chores
+
+* **AZ-1088:** apply suggestions a01134d
+* **deps:** update dependency opentofu to v1.8.3 8ca88d5
+* **deps:** update dependency pre-commit to v4 b05ecec
+* **deps:** update dependency trivy to v0.56.2 3071637
+* **deps:** update pre-commit hook pre-commit/pre-commit-hooks to v5 4cf405d
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.1.0 5453626
+* prepare for new examples structure 3410262
+* update examples structure 5a31adf
+
 ## 7.7.0 (2024-10-04)
 
 ### Features
