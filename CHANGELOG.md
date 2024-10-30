@@ -1,3 +1,13 @@
+## 8.0.1 (2024-10-30)
+
+### Bug Fixes
+
+* **AZ-1088:** keep only latest moved block e10c10c
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.4 95b6536
+
 ## 8.0.0 (2024-10-18)
 
 ### ⚠ BREAKING CHANGES
