@@ -1,3 +1,41 @@
+## 8.1.0 (2025-05-23)
+
+### Features
+
+* **AZ-1561:** add key permissions for admin policy 3c55138
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.8.6 81cd71f
+* **deps:** update dependency opentofu to v1.8.8 6bd3721
+* **deps:** update dependency opentofu to v1.9.0 da0527d
+* **deps:** update dependency opentofu to v1.9.1 f6e3ada
+* **deps:** update dependency pre-commit to v4.1.0 6c1ebc9
+* **deps:** update dependency pre-commit to v4.2.0 2fbdd95
+* **deps:** update dependency terraform-docs to v0.20.0 0968099
+* **deps:** update dependency tflint to v0.54.0 0a5d1d5
+* **deps:** update dependency tflint to v0.55.0 c9a800d
+* **deps:** update dependency tflint to v0.57.0 45ec35d
+* **deps:** update dependency trivy to v0.57.1 4a6443a
+* **deps:** update dependency trivy to v0.58.1 98bfb3d
+* **deps:** update dependency trivy to v0.58.2 9e54afe
+* **deps:** update dependency trivy to v0.59.1 029c5a2
+* **deps:** update dependency trivy to v0.60.0 9beaf8f
+* **deps:** update dependency trivy to v0.61.1 a021081
+* **deps:** update dependency trivy to v0.62.0 7dcbb7e
+* **deps:** update dependency trivy to v0.62.1 1f42a9b
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.19.0 2230231
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.20.0 1e531cc
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.21.0 149c99e
+* **deps:** update pre-commit hook alessandrojcm/commitlint-pre-commit-hook to v9.22.0 eaa4c40
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.0 405d754
+* **deps:** update tools 16b9047
+* **deps:** update tools b6a06b0
+* **deps:** update tools 588b7f3
+* **deps:** update tools 6d5a801
+* update Github templates cb754fa
+* update tflint config for v0.55.0 4849619
+
 ## 8.0.1 (2024-10-30)
 
 ### Bug Fixes
