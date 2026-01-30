@@ -1,3 +1,29 @@
+## 8.1.2 (2026-01-30)
+
+### Code Refactoring
+
+* ♻️ rename legacy field enabled 28ac08a
+
+### Miscellaneous Chores
+
+* **deps:** update dependency opentofu to v1.10.7 9f9c5b2
+* **deps:** update dependency opentofu to v1.11.2 862117d
+* **deps:** update dependency opentofu to v1.11.3 78584cf
+* **deps:** update dependency opentofu to v1.11.4 70d3eb4
+* **deps:** update dependency pre-commit to v4.4.0 578f366
+* **deps:** update dependency pre-commit to v4.5.0 71c5f9b
+* **deps:** update dependency pre-commit to v4.5.1 3091dcb
+* **deps:** update dependency tflint to v0.60.0 e72fd4c
+* **deps:** update dependency trivy to v0.67.1 385c3bf
+* **deps:** update dependency trivy to v0.67.2 eb94077
+* **deps:** update dependency trivy to v0.68.1 7385926
+* **deps:** update dependency trivy to v0.68.2 ada95ff
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.10 f2eb364
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.8 0b70607
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.9 d1cb736
+* **deps:** update pre-commit hook tofuutils/pre-commit-opentofu to v2.2.2 407d289
+* **deps:** update tools 25d4b1a
+
 ## 8.1.1 (2025-09-30)
 
 ### Code Refactoring
