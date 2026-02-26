@@ -22,7 +22,7 @@ module "key_vault" {
     # module.logs.log_analytics_workspace_id,
   ]
 
-  # WebApp or other applications Object IDs
+  # RBAC is enabled by default, no need to set `rbac_authorization_enabled = true`
   reader_objects_ids = var.readers_object_ids
 
   # Current user should be here to be able to create keys and secrets
@@ -107,6 +107,7 @@ resource "azurerm_key_vault_certificate" "hsm_certs" {
       validity_in_months = 24
     }
   }
+  lifecycle { prevent_destroy = true }
 }
 
 # trivy:ignore:azure-keyvault-ensure-secret-expiry
@@ -115,4 +116,6 @@ resource "azurerm_key_vault_secret" "hsm_security_domain" {
   name         = "hsm-security-domain"
   value        = module.keyvault_hsm.hsm_security_domain
   content_type = "application/json"
+
+  lifecycle { prevent_destroy = true }
 }

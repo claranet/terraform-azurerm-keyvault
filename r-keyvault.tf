@@ -33,6 +33,10 @@ resource "azurerm_key_vault" "main" {
   }
 
   tags = merge(local.default_tags, var.extra_tags)
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 moved {

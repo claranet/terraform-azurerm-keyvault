@@ -18,6 +18,7 @@ module "key_vault" {
     # module.logs.log_analytics_workspace_id,
   ]
 
+  # RBAC is enabled by default, no need to set `rbac_authorization_enabled = true`
   reader_objects_ids = var.readers_object_ids
 
   # Current user should be here to be able to create keys and secrets
