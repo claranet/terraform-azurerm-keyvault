@@ -87,7 +87,7 @@ module "key_vault" {
 
 | Name | Source | Version |
 |------|--------|---------|
-| diagnostics | claranet/diagnostic-settings/azurerm | ~> 8.2.0 |
+| diagnostics | claranet/diagnostic-settings/azurerm | ~> 8.2 |
 
 ## Resources
 
