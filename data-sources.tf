@@ -1,2 +1,1 @@
-data "azurerm_client_config" "current_config" {
-}
+data "azurerm_client_config" "current_config" {}

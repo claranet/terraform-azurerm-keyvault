@@ -1,20 +1,20 @@
 variable "client_name" {
-  description = "Client name"
+  description = "Client name."
   type        = string
 }
 
 variable "environment" {
-  description = "Environment name"
+  description = "Environment name."
   type        = string
 }
 
 variable "stack" {
-  description = "Stack name"
+  description = "Stack name."
   type        = string
 }
 
 variable "resource_group_name" {
-  description = "Resource Group the resources will belong to"
+  description = "Resource Group the resources will belong to."
   type        = string
 }
 
@@ -35,7 +35,7 @@ variable "tenant_id" {
 }
 
 variable "sku_name" {
-  description = "The Name of the SKU used for this Key Vault. Possible values are \"standard\" and \"premium\"."
+  description = "The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`."
   type        = string
   default     = "standard"
 }
@@ -58,6 +58,12 @@ variable "enabled_for_template_deployment" {
   default     = false
 }
 
+variable "rbac_authorization_enabled" {
+  description = "Whether the Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies."
+  type        = bool
+  default     = true
+}
+
 variable "admin_objects_ids" {
   description = "IDs of the objects that can do all operations on all keys, secrets and certificates."
   type        = list(string)
@@ -77,12 +83,12 @@ variable "public_network_access_enabled" {
 }
 
 variable "network_acls" {
-  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See https://www.terraform.io/docs/providers/azurerm/r/key_vault.html#bypass for more information."
+  description = "Object with attributes: `bypass`, `default_action`, `ip_rules`, `virtual_network_subnet_ids`. Set to `null` to disable. See [Terraform documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault#bypass) for more information."
   type = object({
-    bypass                     = optional(string, "None"),
-    default_action             = optional(string, "Deny"),
-    ip_rules                   = optional(list(string)),
-    virtual_network_subnet_ids = optional(list(string)),
+    bypass                     = optional(string, "None")
+    default_action             = optional(string, "Deny")
+    ip_rules                   = optional(list(string))
+    virtual_network_subnet_ids = optional(list(string))
   })
   default = {}
 }
@@ -97,10 +103,4 @@ variable "soft_delete_retention_days" {
   description = "The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days."
   type        = number
   default     = 7
-}
-
-variable "rbac_authorization_enabled" {
-  type        = bool
-  description = "Whether the Key Vault uses Role Based Access Control (RBAC) for authorization of data actions instead of access policies."
-  default     = false
 }

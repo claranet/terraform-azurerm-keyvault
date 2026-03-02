@@ -1,3 +1,4 @@
+# tflint-ignore: azurerm_resources_missing_prevent_destroy
 resource "azurerm_key_vault" "main" {
   count = var.managed_hardware_security_module_enabled ? 0 : 1
 

@@ -1,11 +1,11 @@
 variable "managed_hardware_security_module_enabled" {
-  description = "Create a KeyVault Managed HSM resource if enabled. Changing this forces a new resource to be created."
+  description = "Create a Key Vault Managed HSM resource if enabled. Changing this forces a new resource to be created."
   type        = bool
   default     = false
 }
 
 variable "hsm_security_domain_certificates" {
-  description = "List of keyvault certificates ids to be used as security domain certificates."
+  description = "List of Key Vault certificates IDs to be used as security domain certificates."
   type        = list(string)
   default     = null
 }
