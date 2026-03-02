@@ -1,3 +1,25 @@
+## 8.2.0 (2026-03-02)
+
+### Features
+
+* **keyvault:** ♻️ enable RBAC by default, split outputs 5c42c75
+
+### Code Refactoring
+
+* **gitlab MR template:** ♻️ update default reviewers group with Azure Factory 🔧 08e55aa
+
+### Miscellaneous Chores
+
+* 🔧 drop prevent_destroy (unwanted on pipelines) 34ce6fa
+* **deps:** 🔗 bump tflint rules version 6ae8ce2
+* **deps:** update dependency tflint to v0.61.0 941be9d
+* **deps:** update dependency trivy to v0.69.0 5239b50
+* **deps:** update dependency trivy to v0.69.1 34a5514
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.11 6cf3bb4
+* **deps:** update pre-commit hook crate-ci/committed to v1.1.11 653c116
+* **deps:** update tools 8ae20f1
+* merge remote-tracking branch 'origin/renovate/crate-ci-committed-1.x' 0a097b8
+
 ## 8.1.2 (2026-01-30)
 
 ### Code Refactoring
