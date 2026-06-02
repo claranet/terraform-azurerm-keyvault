@@ -16,6 +16,7 @@ output "uri" {
 output "resource" {
   description = "Key Vault resource object."
   value       = one(concat(azurerm_key_vault.main[*], azurerm_key_vault_managed_hardware_security_module.main[*]))
+  sensitive   = true
 }
 
 output "hsm_security_domain" {
